@@ -1,0 +1,23 @@
+.container {
+    max-width: 1110px;
+}
+
+.warning {
+    display: none;
+}
+
+.row>* {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.iti__flag {
+    background-image: url("../img/flags.png");
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .iti__flag {
+        background-image: url("../img/flags@2x.png");
+    }
+}

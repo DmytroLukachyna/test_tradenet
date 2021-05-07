@@ -1,0 +1,115 @@
+.plus {
+    padding: 80px 15px;
+    min-height: 698px;
+    background: rgb(241, 242, 244);
+    &__title {
+        font-weight: 500;
+        font-size: 40px;
+        line-height: 47px;
+        color: rgb(17, 17, 17);
+        text-align: center;
+    }
+    &__box {
+        max-width: 520px;
+        background: rgb(76, 30, 211);
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        padding: 60px 40px 40px;
+        position: relative;
+        transition: all .5s ease-in-out;
+        &:hover {
+            .plus__box-hidden {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+        &-notebook {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        &:nth-of-type(1) {
+            padding-right: 170px;
+            .plus__box-notebook {
+                right: 0;
+            }
+        }
+        &:nth-of-type(2) {
+            padding-left: 170px;
+            .plus__box-notebook {
+                left: 0;
+            }
+        }
+        &-title {
+            font-weight: bold;
+            font-size: 24px;
+            color: rgb(255, 255, 255);
+        }
+        &-text {
+            padding-left: 25px;
+            font-size: 20px;
+            color: rgb(255, 255, 255);
+        }
+        &-item {
+            margin-top: 20px;
+        }
+        &-symbol {
+            max-width: 70px;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 48px;
+            color: rgb(90, 23, 255);
+            &::selection {
+                color: rgb(90, 23, 255);
+            }
+        }
+        &-hidden {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            padding: 20px;
+            background: rgb(76, 30, 211);
+            border-radius: 5px;
+            opacity: 0;
+            visibility: hidden;
+            cursor: pointer;
+            transition: all .25s ease-in-out;
+            &-title {
+                font-weight: bold;
+                font-size: 24px;
+                color: rgb(255, 255, 255);
+            }
+            &-text {
+                padding-left: 25px;
+                font-size: 21px;
+                color: rgb(255, 255, 255);
+            }
+            &-item {
+                margin-top: 20px;
+            }
+        }
+    }
+    &_jcsb {
+        justify-content: space-between;
+    }
+    &__free {
+        margin-top: 60px;
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 38px;
+        text-align: center;
+        color: rgb(27, 216, 149);
+        &-subtext {
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 17px;
+            color: rgb(17, 17, 17);
+            text-align: center;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+.disclaimer {
+    padding: 40px 15px 60px;
+    background: rgb(255, 240, 230);
+    &__text {
+        font-family: Raleway;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 19px;
+        padding: 0;
+    }
+}
