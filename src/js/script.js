@@ -80,32 +80,6 @@ $(document).ready(function() {
         $(".contact__quiz-1").removeClass("contact_hidden");
     });
     $(".contact__quiz-main-label_1").click(function() {
-        setTimeout(function() {
-            let userName = $(".input__name").val(),
-                userEmail = $(".input__email").val(),
-                userNumber = iti.getNumber(),
-                userCountry = $(".input__country option:selected").text(),
-                quizFirst = $('input[name="experience"]:checked').val();
-            $.ajax({
-                type: "POST",
-                url: "handler/script_start.php",
-                data: {
-                    userName: userName,
-                    userEmail: userEmail,
-                    userNumber: userNumber,
-                    userCountry: userCountry,
-                    quizFirst: quizFirst
-                },
-                cache: false,
-                success: function(data) {
-                    let result = JSON.parse(data);
-                    console.log(result);
-                },
-                error: function(xhr, status, error) {
-                    console.error(xhr);
-                }
-            });
-        }, 100);
         $(".contact__quiz-1").addClass("contact_hidden");
         $(".contact__quiz-2").removeClass("contact_hidden");
     });
@@ -119,36 +93,17 @@ $(document).ready(function() {
     });
     $(".contact__quiz-main-label_4").click(function() {
         setTimeout(function() {
-            let userName = $(".input__name").val(),
-                userEmail = $(".input__email").val(),
-                userNumber = iti.getNumber(),
-                userCountry = $(".input__country option:selected").text(),
-                quizFirst = $('input[name="experience"]:checked').val(),
-                quizSecond = $('input[name="aim"]:checked').val(),
-                quizThird = $('input[name="time"]:checked').val(),
-                quizFourth = $('input[name="money"]:checked').val();
-            $.ajax({
-                type: "POST",
-                url: "handler/script_finish.php",
-                data: {
-                    userName: userName,
-                    userEmail: userEmail,
-                    userNumber: userNumber,
-                    userCountry: userCountry,
-                    quizFirst: quizFirst,
-                    quizSecond: quizSecond,
-                    quizThird: quizThird,
-                    quizFourth: quizFourth
-                },
-                cache: false,
-                success: function(data) {
-                    let result = JSON.parse(data);
-                    console.log(result);
-                },
-                error: function(xhr, status, error) {
-                    console.error(xhr);
-                }
-            });
+            let formData = {
+                userName: $(".input__name").val(),
+                userEmail: $(".input__email").val(),
+                userNumber: iti.getNumber(),
+                userCountry: $(".input__country option:selected").text(),
+                quizFirst: $('input[name="experience"]:checked').val(),
+                quizSecond: $('input[name="aim"]:checked').val(),
+                quizThird: $('input[name="time"]:checked').val(),
+                quizFourth: $('input[name="money"]:checked').val()
+            };
+            console.log(formData);
         }, 100);
         $(".contact__quiz-4").addClass("contact_hidden");
         $(".contact__quiz-end").removeClass("contact_hidden");
