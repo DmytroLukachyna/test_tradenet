@@ -1,1 +1,1 @@
-https://dmytrolukachyna.github.io/projects/test_tradenet/
+https://dmytrolukachyna.pp.ua/projects/test/tradenet/
