@@ -1,5 +1,12 @@
+# build
+dist
+.wrangler
+
 # dependencies
 /node_modules
+
+# secrets
+.env
 
 # misc
 .DS_Store

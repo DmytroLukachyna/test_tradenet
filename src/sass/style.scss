@@ -1,13 +1,11 @@
-@import 'libs/normalize';
-@import 'base/container';
-@import 'base/fonts';
-@import 'sections/mainscreen';
-@import 'sections/promo';
-@import 'sections/plus';
-@import 'sections/contact';
-@import 'sections/disclaimer';
-@import 'sections/footer';
-
-/*  */
-
-@import 'base/media';
+@use "intl-tel-input/build/css/intlTelInput.css";
+@use "libs/normalize";
+@use "base/container";
+@use "base/fonts";
+@use "sections/mainscreen";
+@use "sections/promo";
+@use "sections/plus";
+@use "sections/contact";
+@use "sections/disclaimer";
+@use "sections/footer";
+@use "base/media";

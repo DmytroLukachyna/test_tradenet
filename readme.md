@@ -1,1 +1,1 @@
-https://dmytrolukachyna.pp.ua/projects/test/tradenet/
+https://tradenet.dmytrolukachyna.com/

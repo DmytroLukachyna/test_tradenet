@@ -1,3 +1,12 @@
+import $ from './jquery-global.js';
+import intlTelInput from 'intl-tel-input';
+import 'intl-tel-input/build/css/intlTelInput.css';
+import utilsUrl from 'intl-tel-input/build/js/utils.js?url';
+import 'jquery-validation';
+
+const IPINFO_TOKEN = import.meta.env.VITE_IPINFO_TOKEN;
+const DEFAULT_COUNTRY = 'us';
+
 var countryData = window.intlTelInputGlobals.getCountryData(),
   input = document.querySelector('#phone'),
   addressDropdown = document.querySelector('#input-country'),
@@ -12,19 +21,25 @@ var errorMap = [
   'Invalid number',
 ];
 
-var iti = window.intlTelInput(input, {
+var iti = intlTelInput(input, {
   hiddenInput: 'full_phone',
   separateDialCode: true,
   initialCountry: 'auto',
-  geoIpLookup: function (callback) {
-    $.get('https://ipinfo.io?token=27deb63d2b068c', function () {}, 'jsonp').always(function (
-      resp,
-    ) {
-      var countryCode = resp && resp.country ? resp.country : 'us';
-      callback(countryCode);
-    });
+  geoIpLookup: (countrySet) => {
+    if (!IPINFO_TOKEN) {
+      countrySet(DEFAULT_COUNTRY);
+      return;
+    }
+    fetch(`https://api.ipinfo.io/lite/me?token=${IPINFO_TOKEN}`)
+      .then((res) => (res.ok ? res.json() : Promise.reject()))
+      .then((response) => {
+        countrySet((response.country_code || DEFAULT_COUNTRY).toLowerCase());
+      })
+      .catch(() => {
+        countrySet(DEFAULT_COUNTRY);
+      });
   },
-  utilsScript: 'js/utils.js',
+  utilsScript: utilsUrl,
 });
 
 var reset = function () {
